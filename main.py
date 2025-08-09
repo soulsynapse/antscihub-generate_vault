@@ -45,6 +45,20 @@ def run_index():
         print(f"Error running generate_vault_cmd_index: {e}")
         return False
 
+def run_site_files():
+    """Run the site files copy script."""
+    print("=" * 60)
+    print("COPYING SITE FILES")
+    print("=" * 60)
+    
+    try:
+        from copy_site_files import copy_site_files
+        copy_site_files()
+        return True
+    except Exception as e:
+        print(f"Error running copy_site_files: {e}")
+        return False
+
 def main():
     """Main function to run the vault generation process."""
     parser = argparse.ArgumentParser(
@@ -55,6 +69,7 @@ Examples:
   python main.py                 # Run both commands and index generation
   python main.py --commands-only # Run only commands generation
   python main.py --index-only    # Run only index generation
+  python main.py --site-files    # Copy publish.css and publish.js to vault
         """
     )
     
@@ -70,12 +85,43 @@ Examples:
         help='Only generate index file, skip commands generation'
     )
     
+    parser.add_argument(
+        '--site-files', 
+        action='store_true',
+        help='Copy publish.css and publish.js to vault site files directory'
+    )
+    
     args = parser.parse_args()
     
     # Check for conflicting arguments
     if args.commands_only and args.index_only:
         print("Error: Cannot use --commands-only and --index-only together")
         sys.exit(1)
+    
+    # Handle site files only option
+    if args.site_files:
+        start_time = datetime.now()
+        print("AntSciHub Vault - Site Files Copy")
+        print(f"Started at: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        print("=" * 60)
+        
+        success = run_site_files()
+        
+        end_time = datetime.now()
+        duration = end_time - start_time
+        
+        print("=" * 60)
+        print("COPY COMPLETE")
+        print("=" * 60)
+        print(f"Finished at: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"Total time: {duration.total_seconds():.2f} seconds")
+        
+        if success:
+            print("✅ Site files copied successfully!")
+            sys.exit(0)
+        else:
+            print("❌ Site files copy failed. Check the output above.")
+            sys.exit(1)
     
     start_time = datetime.now()
     print("AntSciHub Vault Generation")

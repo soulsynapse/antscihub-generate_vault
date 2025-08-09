@@ -31,7 +31,7 @@ def generate_vault():
     
     # Get all entries from the database
     cursor.execute("""
-        SELECT entry, response, userid, helpers, related_cmds, call_count, up
+        SELECT entry, response, userid, helpers, related_cmds, call_count, up, updated_at
         FROM responses
     """)
     
@@ -41,7 +41,7 @@ def generate_vault():
     print(f"Processing {len(entries)} entries...")
     
     for entry_data in entries:
-        entry, response, userid, helpers_json, related_json, call_count, up_json = entry_data
+        entry, response, userid, helpers_json, related_json, call_count, up_json, updated_at = entry_data
         
         # Parse JSON fields, handle empty/null values
         try:
@@ -79,8 +79,8 @@ def generate_vault():
         related_display = ', '.join([f'[[{rel}]]' for rel in related]) if related else 'None'
         helpers_display = ', '.join([f'[[{helper}]]' for helper in helpers]) if helpers else 'None'
         
-        # Get current date and time for generation timestamp
-        generation_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # Use last edited time from database
+        last_edited_time = updated_at if updated_at else "Unknown"
         
         # Create markdown content
         markdown_content = f"""---
@@ -99,7 +99,7 @@ related:{related_formatted}
 >**Related**: {related_display}
 >**Author:** [[{userid}]]
 >**Volunteers:** {helpers_display}
->**Generated:** {generation_time}
+>**Last Edited:** {last_edited_time}
 """
         
         # Create filename (sanitize entry name for filesystem)

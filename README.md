@@ -67,9 +67,23 @@ python main.py --commands-only
 # Run only index generation
 python main.py --index-only
 
+# Copy publish.css and publish.js to vault site files directory
+python main.py --site-files
+
 # Show help
 python main.py --help
 ```
+
+### Site Files Management
+
+Use the site files script to copy publishing assets to your vault:
+
+```bash
+# Copy publish.css and publish.js to vault/site files/
+python copy_site_files.py
+```
+
+This creates a "site files" directory in your vault with the CSS and JavaScript files needed for enhanced web publishing.
 
 The tool will automatically:
 1. Load configuration from available config files
