@@ -1,3 +1,21 @@
-/* AntSciHub Knowledge Vault - Publish CSS */
-/* Custom styling for published knowledge vault content */
+body {
+	--list-bullet-size: .42em;
+	--list-marker-color:#7a7a7a;
 
+}
+
+.list-bullet {
+	padding-right:.6em;
+}
+
+	
+/* Vertical line in front of child list items */
+.markdown-rendered ul ul > li::before,
+.markdown-rendered ol ol > li::before {
+  content: "";
+  position: absolute;
+  left: -3.1em; /* adjust until it’s just before the bullet */
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #ccc; /* guide color */
+}

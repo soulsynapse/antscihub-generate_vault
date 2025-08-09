@@ -76,14 +76,14 @@ python main.py --help
 
 ### Site Files Management
 
-Use the site files script to copy publishing assets to your vault:
+Use the site files script to copy publishing assets to the vault:
 
 ```bash
 # Copy publish.css and publish.js to vault/site files/
 python copy_site_files.py
 ```
 
-This creates a "site files" directory in your vault with the CSS and JavaScript files needed for enhanced web publishing.
+This creates a "site files" directory in the vault with the CSS and JavaScript files needed for enhanced web publishing.
 
 The tool will automatically:
 1. Load configuration from available config files
