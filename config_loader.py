@@ -3,10 +3,10 @@ import os
 
 def load_config():
     """Load configuration from config files with fallbacks."""
-    # Default configuration (current directory based)
+    # Default configuration (code folder based - used only when config.json is not present)
     default_config = {
         "database_path": "responses.db",
-        "output_base_dir": os.path.join(os.getcwd(), "output"),
+        "output_base_dir": "output",
         "commands_subdir": "Commands", 
         "index_filename": "Index.md"
     }

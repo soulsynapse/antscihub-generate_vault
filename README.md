@@ -6,8 +6,8 @@ This tool generates markdown files from a database of community responses for th
 
 The tool uses a flexible configuration system with the following priority order:
 
-1. **Default values** - Built-in defaults using current directory
-2. **config.json** - Tracked configuration file with your project defaults
+1. **Default values** - Built-in defaults using "./output" folder (only used if config.json is missing)
+2. **config.json** - Main configuration file with project-specific paths
 3. **config.local.json** - Local overrides (ignored by git)
 
 ### Configuration Options
