@@ -21,8 +21,9 @@ def copy_site_files():
     source_css = os.path.join(script_dir, 'publish.css')
     source_js = os.path.join(script_dir, 'publish.js')
     
-    # Define destination directory (site files in vault)
-    site_files_dir = os.path.join(paths['output_base_dir'], 'site files')
+    # Define destination directory (directly in AntSciHub root)
+    vault_root = os.path.dirname(paths['output_base_dir'])
+    site_files_dir = vault_root
     
     print("=" * 60)
     print("COPYING SITE FILES TO VAULT")

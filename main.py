@@ -66,10 +66,10 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python main.py                 # Run both commands and index generation
+  python main.py                 # Run commands + index + site files (complete generation)
   python main.py --commands-only # Run only commands generation
   python main.py --index-only    # Run only index generation
-  python main.py --site-files    # Copy publish.css and publish.js to vault
+  python main.py --site-files    # Copy only publish.css and publish.js to vault
         """
     )
     
@@ -142,6 +142,15 @@ Examples:
     # Run index generation
     if not args.commands_only:
         if not run_index():
+            success = False
+    
+    # Add separator before site files
+    if not args.commands_only and not args.index_only:
+        print()
+    
+    # Run site files copy (unless using specific flags)
+    if not args.commands_only and not args.index_only:
+        if not run_site_files():
             success = False
     
     # Summary
