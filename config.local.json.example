@@ -1,0 +1,8 @@
+{
+    "_comment": "This is a local configuration file that overrides config.json settings",
+    "_comment2": "Copy this to config.local.json and modify as needed",
+    "database_path": "responses.db",
+    "output_base_dir": "C:\\Users\\YourUsername\\Documents\\YourVault\\Community Knowledge",
+    "commands_subdir": "Commands",
+    "index_filename": "Index.md"
+}
