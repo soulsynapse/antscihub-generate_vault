@@ -95,19 +95,7 @@ The tool will automatically:
 The repository includes ready-to-use publishing assets:
 
 ### `publish.css`
-Empty CSS template ready for customization. Add your own styling for published content such as:
-- Custom color schemes and themes
-- Typography and layout preferences
-- Responsive design rules
-- Print-friendly styles
-- Dark/light mode variations
+Empty css currently.
 
 ### `publish.js`
-Empty JavaScript template ready for customization. Add your own interactive functionality such as:
-- Custom navigation features
-- Search functionality
-- Interactive elements
-- Theme toggles
-- Mobile-responsive enhancements
-
-These empty template files are copied to your vault directory and can be customized to enhance the presentation of your generated vault content when used with Obsidian Publish or any static site generator.
+Empty JavaScript file as of currently.
