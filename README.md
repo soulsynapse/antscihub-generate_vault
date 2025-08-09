@@ -36,11 +36,39 @@ The tool uses a flexible configuration system with the following priority order:
 
 ## Usage
 
+### Quick Start
+
+Run both scripts with a single command:
+
+```bash
+python main.py
+```
+
+### Individual Scripts
+
 Run the scripts directly:
 
 ```bash
 python generate_vault_commands.py
 python generate_vault_cmd_index.py
+```
+
+### Advanced Usage
+
+The main script supports several options:
+
+```bash
+# Run both commands and index generation (default)
+python main.py
+
+# Run only command files generation
+python main.py --commands-only
+
+# Run only index generation
+python main.py --index-only
+
+# Show help
+python main.py --help
 ```
 
 The tool will automatically:
