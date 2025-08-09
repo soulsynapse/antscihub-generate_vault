@@ -1,0 +1,270 @@
+/* AntSciHub Knowledge Vault - Publish CSS */
+/* Custom styling for published knowledge vault content */
+
+/* Root variables for consistent theming */
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #64748b;
+  --accent-color: #f59e0b;
+  --background-color: #ffffff;
+  --surface-color: #f8fafc;
+  --text-color: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --code-background: #f1f5f9;
+  --callout-background: #f8fafc;
+  --callout-border: #e2e8f0;
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #3b82f6;
+    --secondary-color: #94a3b8;
+    --accent-color: #fbbf24;
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-color: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --code-background: #1e293b;
+    --callout-background: #1e293b;
+    --callout-border: #334155;
+    --link-color: #60a5fa;
+    --link-hover: #93c5fd;
+  }
+}
+
+/* Base styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+/* Wiki-style links */
+a[data-href*="[["] {
+  background-color: var(--surface-color);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+}
+
+a[data-href*="[["]:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Code blocks */
+code {
+  background-color: var(--code-background);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: var(--code-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Callouts */
+.callout {
+  background-color: var(--callout-background);
+  border: 1px solid var(--callout-border);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.callout[data-callout="note"] {
+  border-left-color: var(--primary-color);
+}
+
+.callout[data-callout="info"] {
+  border-left-color: #06b6d4;
+}
+
+.callout[data-callout="warning"] {
+  border-left-color: var(--accent-color);
+}
+
+.callout[data-callout="error"] {
+  border-left-color: #ef4444;
+}
+
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.callout-title::before {
+  content: "📝";
+  margin-right: 0.5rem;
+}
+
+.callout[data-callout="info"] .callout-title::before {
+  content: "ℹ️";
+}
+
+.callout[data-callout="warning"] .callout-title::before {
+  content: "⚠️";
+}
+
+.callout[data-callout="error"] .callout-title::before {
+  content: "❌";
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Nested lists in callouts */
+.callout ul {
+  margin: 0.5rem 0;
+}
+
+.callout li {
+  margin-bottom: 0.25rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--surface-color);
+  font-weight: 600;
+}
+
+/* Metadata/frontmatter display */
+.metadata {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.metadata-title {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Generation timestamp */
+.generation-info {
+  border-top: 1px solid var(--border-color);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .callout {
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+}

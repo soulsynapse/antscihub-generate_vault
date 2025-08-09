@@ -75,3 +75,26 @@ The tool will automatically:
 1. Load configuration from available config files
 2. Create output directories if they don't exist
 3. Generate markdown files from the database entries
+
+## Publishing Files
+
+The repository includes ready-to-use publishing assets:
+
+### `publish.css`
+Custom CSS styling for published content featuring:
+- Clean, modern design with dark/light mode support
+- Enhanced callout styling with collapsible sections
+- Responsive design for mobile devices
+- Print-friendly styles
+- Wiki-link styling enhancements
+
+### `publish.js`
+Interactive functionality for published content:
+- Collapsible callouts with `+` indicator
+- Wiki-link tooltips on hover
+- Built-in search functionality
+- Theme toggle (dark/light mode)
+- Back-to-top button
+- Mobile-responsive interface
+
+These files can be used with Obsidian Publish or any static site generator to enhance the presentation of your generated vault content.
