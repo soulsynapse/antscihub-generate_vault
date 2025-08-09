@@ -99,3 +99,55 @@ Empty css currently.
 
 ### `publish.js`
 Empty JavaScript file as of currently.
+
+## Advanced Customization
+
+### Using CSS Sprite Sheets
+
+For advanced styling and iconography, we can use CSS sprite sheets in the `publish.css` file. Sprite sheets are efficient ways to manage multiple icons or graphics in a single image file.
+
+#### Setting up a CSS Sprite Sheet
+
+1. **Create your sprite sheet image** - Combine all your icons into a single PNG or SVG file
+2. **Define the sprite base class** in `publish.css`:
+
+```css
+.sprite {
+    background-image: url('path/to/your-spritesheet.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+```
+
+3. **Define individual sprite positions**:
+
+```css
+.sprite.icon-command {
+    width: 16px;
+    height: 16px;
+    background-position: 0 0;
+}
+
+.sprite.icon-category {
+    width: 16px;
+    height: 16px;
+    background-position: -16px 0;
+}
+
+.sprite.icon-info {
+    width: 16px;
+    height: 16px;
+    background-position: -32px 0;
+}
+```
+
+#### Using Sprites in Your Vault
+
+Once defined, you can use sprites in your markdown by adding HTML elements:
+
+```html
+<span class="sprite icon-command"></span> Command Name
+<span class="sprite icon-category"></span> Category
+```
+
+Alternatively we can add them the way that old reddit used to, with tags after the link, which may scale better.
